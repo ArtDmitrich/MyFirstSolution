@@ -69,7 +69,7 @@ static double AreaCalculation (int radius, int generatrix) // метод пои�
     return Math.PI * radius * (radius + generatrix);
 }
 
-void Task2() // Решение. Задачи2
+static void Task2() // Решение. Задачи2
 {
     Console.WriteLine("Имеется 3 переменные типа int x = 14, y = 1, и z = 5");
     int x = 14;
