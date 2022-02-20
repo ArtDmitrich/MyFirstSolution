@@ -39,7 +39,7 @@ static void Task1() // Решение Задачи1
     Console.WriteLine("Длина образующей");
     var generatrix = NumberEntryUnsigned();
     Console.WriteLine($"Введенные данные: радиус - {radius}см, образующая - {generatrix}см");
-    Console.WriteLine($"Площадь конуса равна {AreaCalculation(radius, generatrix)}см²");
+    Console.WriteLine($"Площадь конуса равна {Math.PI * radius * (radius + generatrix)}см²");
     Console.WriteLine();
 }
 
@@ -62,11 +62,6 @@ static int NumberEntryUnsigned() //метод для ввода чисел. За
     while (!result);
    
     return number;
-}
-
-static double AreaCalculation (int radius, int generatrix) // метод поиска площади конуса. Задача1
-{
-    return Math.PI * radius * (radius + generatrix);
 }
 
 static void Task2() // Решение. Задачи2
@@ -109,6 +104,7 @@ static void Task3() //Решение Задачи3
         temp = FindGreatestCommonDivisor(Math.Abs(temp), Math.Abs(listOfNumbers[i]));
     }
 
+    Console.WriteLine("Итоговая группа чисел:");
     PrintListOfNumber(listOfNumbers);
     Console.WriteLine($"НОД для группы чисел равен: {temp}");
     Console.WriteLine();
@@ -151,7 +147,7 @@ static List<int> FillingListOfNumbers () // Метод заполнения ко
     return listOfNumbers;
 }
 
-static int NumberEntry() //метод для ввода чисел. Задача 3. не разобрался почему не получилось реализовать перегрузку метода
+static int NumberEntry() //метод для ввода чисел. Задача 3. не разобрался почему не получилось реализовать перегрузку метода для ввода чисел
 {
     bool result;
     int number;
