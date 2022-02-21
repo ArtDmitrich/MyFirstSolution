@@ -4,7 +4,8 @@ do
 {
     Console.WriteLine("Домашнее задание по Занятию3. Меню:" +
     "\n1 - Задача 1 <Площадь поверхности конуса>\t2 - Задача 2 <Базовые операции>" +
-    "\n3 - Задача 3 <Нахождение НОД>\t4 - Выход из программы");
+    "\n3 - Задача 3 <Нахождение НОД>\t4 - Выход из программы" +
+    "\n\nВыберите пункт меню:");
     
     switch (Console.ReadLine())
     {
@@ -39,7 +40,8 @@ static void Task1() // Решение Задачи1
     Console.WriteLine("Длина образующей");
     var generatrix = NumberEntryUnsigned();
     Console.WriteLine($"Введенные данные: радиус - {radius}см, образующая - {generatrix}см");
-    Console.WriteLine($"Площадь конуса равна {Math.PI * radius * (radius + generatrix)}см²");
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
+    Console.WriteLine($"Площадь конуса равна {Math.PI * radius * (radius + generatrix):f}см{(char)0x00B2}");
     Console.WriteLine();
 }
 
@@ -120,7 +122,8 @@ static List<int> FillingListOfNumbers () // Метод заполнения ко
     do
     {
         Console.WriteLine("Меню добавления чисел в группу:" +
-            "\n1 - добавить число\t2 - отобразить группу чисел\t3 - закончить заполнение группы чисел");
+            "\n1 - добавить число\t2 - отобразить группу чисел\t3 - закончить заполнение группы чисел" +
+            "\nВыберите пункт меню:");
         switch (Console.ReadLine())
         {
             case "1":
