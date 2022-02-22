@@ -5,7 +5,7 @@ do
     Console.WriteLine("Домашнее задание по Занятию3. Меню:" +
     "\n1 - Задача 1 <Площадь поверхности конуса>\t2 - Задача 2 <Базовые операции>" +
     "\n3 - Задача 3 <Нахождение НОД>\t4 - Выход из программы" +
-    "\n\nВыберите пункт меню:");
+    "\nВыберите пункт меню:");
     
     switch (Console.ReadLine())
     {
@@ -19,6 +19,7 @@ do
             Task3();
             break;
         case "4":
+            Console.WriteLine("Да пабачэння!");
             menuCheck = false;
             break;
         default :
@@ -31,6 +32,7 @@ while (menuCheck);
 
 static void Task1() // Решение Задачи1
 {
+    Console.WriteLine("---------- Задача 1 <Площадь поверхности конуса> ----------");
     Console.WriteLine("Для нахождения площади поверхности круглого конуса," +
     "\nнеобходимо ввести параметры: r – радиус основания и l – образующая." +
     "\nВсе расчеты проводятся в сантиметрах");
@@ -41,8 +43,9 @@ static void Task1() // Решение Задачи1
     var generatrix = NumberEntryUnsigned();
     Console.WriteLine($"Введенные данные: радиус - {radius}см, образующая - {generatrix}см");
     Console.OutputEncoding = System.Text.Encoding.UTF8;
-    Console.WriteLine($"Площадь конуса равна {Math.PI * radius * (radius + generatrix):f}см{(char)0x00B2}");
-    Console.WriteLine();
+    Console.WriteLine($"Площадь поверхности конуса равна" +
+        $" {Math.PI * radius * (radius + generatrix):f}см{(char)0x00B2}");
+    Console.WriteLine("--------------- Конец задачи ---------------");
 }
 
 static int NumberEntryUnsigned() //метод для ввода чисел. Задача 1
@@ -68,6 +71,7 @@ static int NumberEntryUnsigned() //метод для ввода чисел. За
 
 static void Task2() // Решение. Задачи2
 {
+    Console.WriteLine("---------- Задача 2 <Базовые операции> ----------");
     Console.WriteLine("Имеется 3 переменные типа int x = 14, y = 1, и z = 5");
     int x = 14;
     int y = 1;
@@ -92,11 +96,12 @@ static void Task2() // Решение. Задачи2
     Console.WriteLine("Результатом операции x = y - x++ * z; будет:");
     x = y - x++ * z;
     Console.WriteLine($"x = {x}, y = {y}, z = {z}");
-    Console.WriteLine();
+    Console.WriteLine("--------------- Конец задачи ---------------");
 }
 
 static void Task3() //Решение Задачи3
 {
+    Console.WriteLine("---------- Задача 3 <Нахождение НОД> ----------");
     Console.WriteLine("Приступаем к нахождению НОД группы чисел.");
     List<int> listOfNumbers = FillingListOfNumbers();
     int temp = listOfNumbers[0];
@@ -109,7 +114,7 @@ static void Task3() //Решение Задачи3
     Console.WriteLine("Итоговая группа чисел:");
     PrintListOfNumber(listOfNumbers);
     Console.WriteLine($"НОД для группы чисел равен: {temp}");
-    Console.WriteLine();
+    Console.WriteLine("--------------- Конец задачи ---------------");
 }
 
 static List<int> FillingListOfNumbers () // Метод заполнения коллекции. Задача3
