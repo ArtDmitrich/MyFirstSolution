@@ -29,6 +29,7 @@ do
     Console.WriteLine();
 }
 while (menuCheck);
+Console.ReadKey();
 
 static void Task1() // Решение Задачи1
 {
