@@ -54,7 +54,7 @@ static void Task1() //Решение Задачи1
 
     Console.WriteLine("--------------- Конец задачи ---------------");
 }
-static int NumberEntry(string text) //метод для ввода чисел. Задача 1
+static int NumberEntry(string text) //метод для ввода чисел
 {
     bool result;
     int number;
