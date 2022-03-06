@@ -14,7 +14,7 @@
 
             for (int i = minIndex; i < maxIndex; i++)
             {
-                if (array[i] < array[maxIndex])
+                if (array[i] > array[maxIndex])
                 {
                     pivotIndex++;
                     Swap(ref array[pivotIndex], ref array[i]);
@@ -38,9 +38,24 @@
 
             return array;
 }
-        public static int[] QuickSort(this int[] array)
+        public static int[] QuickSort(this int[] array) //быстрая сортировка. вход в сортировку
         {
             return QuickSort(array, 0, array.Length - 1);
+        }
+        public static int FindMaxInRow (this int[,] matrix, int rowIndex) //поиск максимального элемента на заданной строке в матрице
+        {
+            var temp = matrix[rowIndex,0];
+            var maxIndex = Math.Sqrt(matrix.Length);
+
+            for (int i = 1; i < maxIndex; i++)
+            {
+                if(temp < matrix[rowIndex,i])
+                {
+                    temp = matrix[rowIndex,i];
+                }
+            }
+
+            return temp;
         }
     }
 }
