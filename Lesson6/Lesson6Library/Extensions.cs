@@ -8,7 +8,7 @@ namespace Lesson6Library
 {
     public static class Extensions
     {
-        public static string FindThickBook (this List<Book> books)
+        public static string FindThickBook (this Library library, List<Book> books)
         {
             var temp = 0;
 

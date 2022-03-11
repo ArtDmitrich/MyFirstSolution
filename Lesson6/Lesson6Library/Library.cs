@@ -74,9 +74,9 @@ namespace Lesson6Library
 
             return result;
         }
-        public string FindThickBook () //поиск самой толстой книги с помощью метода расширения
+        public List<Book> GetBooksFromLibrary ()
         {
-            return Books.FindThickBook();
+            return this.Books;
         }
     }
 }
