@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lesson10Library.Clases
 {
-    public class MyList : IList<MyItem>
+    public class MyList: IList<MyItem>
     {
         private MyItem[] Items { get; set; }
         public MyList()
@@ -49,11 +49,28 @@ namespace Lesson10Library.Clases
                 temp[i] = Items[i];
             }
 
-            temp[Items.Length] = item;
+            temp[temp.Length - 1] = item;
 
             Items = new MyItem[temp.Length];
             Items = temp;
-        }         
+        }
+        public void Add(MyItem[] items) //
+        {
+            var temp = new MyItem[Items.Length + items.Length];
+
+            for (int i = 0; i < Items.Length; i++)
+            {
+                temp[i] = Items[i];
+            }
+
+            for (int j = Items.Length, k = 0; j < temp.Length; j++, k++)
+            {
+                temp[j] = items[k];
+            }
+
+            Items = new MyItem[temp.Length];
+            Items = temp;
+        }
 
         public void Clear() //
         {
@@ -105,7 +122,7 @@ namespace Lesson10Library.Clases
                 if(i == index)
                 {
                     temp[i] = item;
-                    continue;
+                    i++;
                 }
                 
                 temp[i] = Items[j];
@@ -155,13 +172,13 @@ namespace Lesson10Library.Clases
             Items = new MyItem[temp.Length];
             Items = temp;
         }
-        public IEnumerator<MyItem> GetEnumerator()
+        public IEnumerator<MyItem> GetEnumerator() //
         {
-            return MyEnumerator<MyItem>.GetEnumerator();
+            return new MyEnumerator(Items);
         }
-        IEnumerator IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator() //
         {
-            throw new NotImplementedException();
+            return GetEnumerator();
         }
     }
 }
