@@ -115,36 +115,34 @@ namespace Lesson10Library.Clases
 
         public void Insert(int index, MyItem item) //
         {
-            var temp = new MyItem[Items.Length + 1];
-
-            for (int i = 0, j = 0; i < temp.Length; i++, j++)
+            if(index >= 0 && index <= Items.Length)
             {
-                if(i == index)
-                {
-                    temp[i] = item;
-                    i++;
-                }
-                
-                temp[i] = Items[j];
-            }
+                var temp = new MyItem[Items.Length + 1];
 
-            Items = new MyItem[temp.Length];
-            Items = temp;
+                for (int i = 0, j = 0; i < temp.Length; i++, j++)
+                {
+                    if (i == index)
+                    {
+                        temp[i] = item;
+                        i++;
+                    }
+
+                    temp[i] = Items[j];
+                }
+
+                Items = new MyItem[temp.Length];
+                Items = temp;
+            }
         }
 
         public bool Remove(MyItem item) //
-        {
+        {            
+            var index = IndexOf(item);
             var result = false;
-            var index = -1;
 
-            for (int i = 0; i < Items.Length; i++)
+            if(index != -1)
             {
-                if (Items[i].Equals(Items[i], item))
-                {
-                    index = i;
-                    result = true;
-                    break;
-                }
+                result = true;
             }
 
             if (result)
@@ -157,20 +155,24 @@ namespace Lesson10Library.Clases
 
         public void RemoveAt(int index) //
         {
-            var temp = new MyItem[Items.Length - 1];
-
-            for (int i = 0, j = 0; i < temp.Length; i++, j++)
+            if(index >0 && index < Items.Length)
             {
-                if (i == index)
+                var temp = new MyItem[Items.Length - 1];
+
+                for (int i = 0, j = 0; i < temp.Length; i++, j++)
                 {
-                    j++;
+                    if (i == index)
+                    {
+                        j++;
+                    }
+
+                    temp[i] = Items[j];
                 }
 
-                temp[i] = Items[j];
+                Items = new MyItem[temp.Length];
+                Items = temp;
             }
-
-            Items = new MyItem[temp.Length];
-            Items = temp;
+            
         }
         public IEnumerator<MyItem> GetEnumerator() //
         {
