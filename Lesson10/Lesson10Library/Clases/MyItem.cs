@@ -19,7 +19,7 @@ namespace Lesson10Library.Clases
             Id = counter;
             Name = name;
         }
-        public bool Equals(MyItem? x, MyItem? y) //
+        public bool Equals(MyItem x, MyItem y) //
         {
             if(x == null || y == null)
             {
