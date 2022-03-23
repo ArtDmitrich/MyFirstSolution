@@ -20,6 +20,10 @@ namespace Lesson6Library
             Books = books;
             SetLibraryNameInBooks(books);
         }
+        public int BooksCount()
+        {
+            return Books.Count;
+        }
         public Library (string libraryName, Book book) //конструктор на случай, вдруг библиотека будет создаваться с 1 книгой :)
         {
             LibraryName = libraryName;

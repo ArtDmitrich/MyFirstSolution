@@ -81,7 +81,7 @@ static void Task3(Library library)
 {
     Console.WriteLine("---------- Выбран поиск самой 'толстой' книги ----------");
 
-    var result = library.FindThickBook(library.GetBooksFromLibrary());
+    var result = library.FindThickBook();
     Console.WriteLine($"Самая толстая книга в библиотеке: {result}");
 
     Console.WriteLine("--------------- Конец задачи ---------------");

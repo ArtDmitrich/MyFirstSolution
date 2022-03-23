@@ -8,19 +8,20 @@ namespace Lesson6Library
 {
     public static class Extensions
     {
-        public static string FindThickBook (this Library library, List<Book> books)
+        public static string FindThickBook (this Library library)
         {
             var temp = 0;
+            var tempBooks = library.GetBooksFromLibrary();
 
-            for (int i = 0; i < books.Count; i++)
+            for (int i = 1; i < tempBooks.Count; i++)
             {
-                if(books[temp].GetBookNumberOfPages() < books[i].GetBookNumberOfPages())
+                if(tempBooks[temp].GetBookNumberOfPages() < tempBooks[i].GetBookNumberOfPages())
                 {
                     temp = i;
                 }
             }
 
-            return books[temp].ToString();
+            return tempBooks[temp].ToString();
         }
         public static int[] BubleSort (this int[] array)
         {
