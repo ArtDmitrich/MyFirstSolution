@@ -11,11 +11,12 @@ static void Task1()
                 { { 10, 11 }, { 12, 13 } }
               };
 
-    for (int i = 0; i < length; i++)
+    Console.Write("{");
+
+    for (int i = 0; i < mas.Length; i++)
     {
-
+        
     }
-    
 
-    Console.WriteLine("{{{1 , 2} , {3 , 4}} , {{4 , 5} , {6 , 7}} , {{7 , 8}, {9 , 10}} , {{10 , 11} , {12 , 13}}}");
+    Console.Write("}");
 }

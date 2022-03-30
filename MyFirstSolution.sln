@@ -35,9 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson10Library", "Lesson10
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson10ConsoleApp", "Lesson10\Lesson10ConsoleApp\Lesson10ConsoleApp.csproj", "{1DE347A0-89EC-4C54-A4D9-B441B1E844F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICWLibrary", "IntermediateControlWork\ICWLibrary\ICWLibrary.csproj", "{F0EFFE94-BC70-4CEC-82CD-258BCA163946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICWLibrary", "IntermediateControlWork\ICWLibrary\ICWLibrary.csproj", "{F0EFFE94-BC70-4CEC-82CD-258BCA163946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ICWConsoleApp", "IntermediateControlWork\ICWConsoleApp\ICWConsoleApp.csproj", "{8CC290F2-B0E2-4663-9F1A-9F99E9997E4E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICWConsoleApp", "IntermediateControlWork\ICWConsoleApp\ICWConsoleApp.csproj", "{8CC290F2-B0E2-4663-9F1A-9F99E9997E4E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12Library", "Lesson12\Lesson12Library\Lesson12Library.csproj", "{D5BB93C9-1A16-4BBC-8710-6616DD372B39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12ConsoleApp", "Lesson12\Lesson12ConsoleApp\Lesson12ConsoleApp.csproj", "{C0805878-0E6C-43E0-A398-5633541E6E03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +121,14 @@ Global
 		{8CC290F2-B0E2-4663-9F1A-9F99E9997E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8CC290F2-B0E2-4663-9F1A-9F99E9997E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8CC290F2-B0E2-4663-9F1A-9F99E9997E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5BB93C9-1A16-4BBC-8710-6616DD372B39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5BB93C9-1A16-4BBC-8710-6616DD372B39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5BB93C9-1A16-4BBC-8710-6616DD372B39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5BB93C9-1A16-4BBC-8710-6616DD372B39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0805878-0E6C-43E0-A398-5633541E6E03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0805878-0E6C-43E0-A398-5633541E6E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0805878-0E6C-43E0-A398-5633541E6E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0805878-0E6C-43E0-A398-5633541E6E03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
