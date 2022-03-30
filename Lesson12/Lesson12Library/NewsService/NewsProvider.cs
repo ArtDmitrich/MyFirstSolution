@@ -8,10 +8,7 @@ namespace Lesson12Library
 {
     public class NewsProvider
     {
-        public event Action<News> SendNews;        
-        public NewsProvider()
-        {
-        }
+        public event Action<News> SendNews; 
         public void SendNewsToClient(News news)
         {
             SendNews?.Invoke(news);

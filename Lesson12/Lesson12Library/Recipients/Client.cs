@@ -24,7 +24,7 @@ namespace Lesson12Library
         {
             foreach (var item in ClietsCategory)
             {
-                if (news.Category.ToUpper() == item.ToUpper())
+                if (news.GetNewsCategory().ToUpper() == item.ToUpper())
                 {
                     AddNewsToClient(news);
                 }
