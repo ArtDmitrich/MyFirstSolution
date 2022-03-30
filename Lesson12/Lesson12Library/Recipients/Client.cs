@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lesson12Library.NewsService;
 
 namespace Lesson12Library
 {
@@ -16,17 +17,17 @@ namespace Lesson12Library
             Name = name;
             provider.SendNews += CheckNews;
         }
-        public void AddNewsToClient (News news)
+        public void AddNewsToClient (NewsEventArgs e)
         {
-            News.Add(news);
+            News.Add(e.News);
         }
-        public void CheckNews(News news)
+        public void CheckNews(object o, NewsEventArgs e)
         {
             foreach (var item in ClietsCategory)
             {
-                if (news.GetNewsCategory().ToUpper() == item.ToUpper())
+                if (e.News.GetNewsCategory().ToUpper() == item.ToUpper())
                 {
-                    AddNewsToClient(news);
+                    AddNewsToClient(e);
                 }
             }
         }

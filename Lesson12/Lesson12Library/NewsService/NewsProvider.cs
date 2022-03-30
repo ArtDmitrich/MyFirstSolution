@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lesson12Library.NewsService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,18 @@ namespace Lesson12Library
 {
     public class NewsProvider
     {
-        public event Action<News> SendNews; 
-        public void SendNewsToClient(News news)
+        public event EventHandler<NewsEventArgs> SendNews;
+        public NewsProvider()
         {
-            SendNews?.Invoke(news);
+
+        }
+        public void SendNewsToClient(NewsEventArgs e)
+        {
+            SendNews?.Invoke(this, e);
+        }
+        public void SendNewsToProvider(object o, NewsEventArgs e)
+        {
+            SendNewsToClient(e);
         }
     }
 }
