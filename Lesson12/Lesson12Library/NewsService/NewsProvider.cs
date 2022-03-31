@@ -10,9 +10,21 @@ namespace Lesson12Library
     public class NewsProvider
     {
         public event EventHandler<NewsEventArgs> SendNews;
-        public NewsProvider()
+        private List<string> BlackList = new List<string>();
+        public void AddInBlackList(string name)
         {
-
+            BlackList.Add(name);
+        }
+        public void RemoveFromBlackList(string name)
+        {
+            if (BlackList.Contains(name))
+            {
+                BlackList.Remove(name);
+            }
+        }
+        public void ClearBlackList()
+        {
+            BlackList.Clear();
         }
         public void SendNewsToClient(NewsEventArgs e)
         {
@@ -20,7 +32,10 @@ namespace Lesson12Library
         }
         public void SendNewsToProvider(object o, NewsEventArgs e)
         {
-            SendNewsToClient(e);
+            if (!BlackList.Contains(e.GetNewsPortalName()))
+            {
+                SendNewsToClient(e);
+            }
         }
     }
 }

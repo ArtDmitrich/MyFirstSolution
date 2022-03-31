@@ -8,19 +8,20 @@ namespace Lesson12Library.NewsService
 {
     public class NewsPortal
     {
-        public string Name { get; }
-        public List<News> News { get; set; } = new List<News>();
+        private string Name { get; }
+        private List<News> News { get; set; } = new List<News>();
         public event EventHandler<NewsEventArgs> SendNews;
         public NewsPortal(string name, NewsProvider provider)
         {
             Name = name;
             SendNews += provider.SendNewsToProvider;
         }
+
         public void AddNewsInPortal (News news)
         {
             News.Add(news);
 
-            var e = new NewsEventArgs(news);
+            var e = new NewsEventArgs(news, this.Name);
             SendNews?.Invoke(this, e);
         }
     }

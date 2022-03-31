@@ -9,9 +9,15 @@ namespace Lesson12Library.NewsService
     public class NewsEventArgs: EventArgs
     {
         private News news;
-        public NewsEventArgs(News news)
+        private string newsPortalName;
+        public NewsEventArgs(News news, string newsPortalName)
         {
             this.news = news;
+            this.newsPortalName = newsPortalName;
+        }
+        public string GetNewsPortalName()
+        {
+            return newsPortalName;
         }
         public News News
         {
