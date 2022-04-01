@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Lesson12Library.Enums;
 
 namespace Lesson12Library
 {
     public class News
     {
         private string NewsTitle { get; }
-        private string Category { get; }
+        private NewsCategories Category { get; }
         private string Text { get; }
-        public News(string category, string newsTitle, string text)
+        public News(NewsCategories category, string newsTitle, string text)
         {
             NewsTitle = newsTitle;
             Category = category;
             Text = text;
         }
-        public string GetNewsCategory ()
+        public NewsCategories GetNewsCategory ()
         {
             return Category;
         }

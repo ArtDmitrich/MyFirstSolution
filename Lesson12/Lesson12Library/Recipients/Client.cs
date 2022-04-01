@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Lesson12Library.NewsService;
+using Lesson12Library.Enums;
 
 namespace Lesson12Library
 {
@@ -11,8 +12,8 @@ namespace Lesson12Library
     {
         public string Name { get; }
         public List<News> News { get; set; } = new List<News>();
-        public List<string> ClietsCategory { get; set; } = new List<string>();
         private List<string> BlackList = new List<string>();
+        public NewsCategories Categories { get; set; }
         public Client(string name, NewsProvider provider)
         {
             Name = name;
@@ -38,14 +39,11 @@ namespace Lesson12Library
             BlackList.Clear();
         }
         public void CheckNews(object o, NewsEventArgs e)
-        {
-            foreach (var item in ClietsCategory)
+        {                            
+            if (Categories.HasFlag(e.News.GetNewsCategory()) && !BlackList.Contains(e.GetNewsPortalName()))
             {
-                if (e.News.GetNewsCategory().ToUpper() == item.ToUpper() && !BlackList.Contains(e.GetNewsPortalName()))
-                {
                     AddNewsToClient(e);
-                }
-            }
+            }            
         }
     }
 }
