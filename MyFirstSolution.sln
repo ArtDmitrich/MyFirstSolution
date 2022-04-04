@@ -39,9 +39,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICWLibrary", "IntermediateC
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ICWConsoleApp", "IntermediateControlWork\ICWConsoleApp\ICWConsoleApp.csproj", "{8CC290F2-B0E2-4663-9F1A-9F99E9997E4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12Library", "Lesson12\Lesson12Library\Lesson12Library.csproj", "{D5BB93C9-1A16-4BBC-8710-6616DD372B39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson12Library", "Lesson12\Lesson12Library\Lesson12Library.csproj", "{D5BB93C9-1A16-4BBC-8710-6616DD372B39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson12ConsoleApp", "Lesson12\Lesson12ConsoleApp\Lesson12ConsoleApp.csproj", "{C0805878-0E6C-43E0-A398-5633541E6E03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson12ConsoleApp", "Lesson12\Lesson12ConsoleApp\Lesson12ConsoleApp.csproj", "{C0805878-0E6C-43E0-A398-5633541E6E03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson13Library", "Lesson13\Lesson13Library\Lesson13Library.csproj", "{9DB63247-3459-43CC-BBA5-515D9EC30893}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,6 +131,10 @@ Global
 		{C0805878-0E6C-43E0-A398-5633541E6E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0805878-0E6C-43E0-A398-5633541E6E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0805878-0E6C-43E0-A398-5633541E6E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB63247-3459-43CC-BBA5-515D9EC30893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB63247-3459-43CC-BBA5-515D9EC30893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB63247-3459-43CC-BBA5-515D9EC30893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB63247-3459-43CC-BBA5-515D9EC30893}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

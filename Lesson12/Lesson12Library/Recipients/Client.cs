@@ -11,15 +11,30 @@ namespace Lesson12Library
     public class Client
     {
         public string Name { get; }
-        public List<News> News { get; set; } = new List<News>();
+        private List<News> News { get; set; } = new List<News>();
         private List<string> BlackList = new List<string>();
-        public NewsCategories Categories { get; set; }
-        public Client(string name, NewsProvider provider)
+        private NewsProvider newsProvider;
+        private NewsCategories Categories { get; set; }
+        public Client(string name, NewsProvider newsProvider)
         {
             Name = name;
-            provider.SendNews += CheckNews;
+            this.newsProvider = newsProvider;
         }
-        public void AddNewsToClient (NewsEventArgs e)
+        public void AddNewsCategories (NewsCategories newsCategories)
+        {
+            newsProvider.SubscribeToNewsletter(this, newsCategories);
+            Categories |= newsCategories;
+        }
+        public void RemoveNewsCategories(NewsCategories newsCategories)
+        {
+            newsProvider.UnsubscribeFromNewsletter(this, newsCategories);
+            Categories ^= newsCategories;
+        }
+        public NewsCategories GetClientsCategories()
+        {
+            return Categories;
+        }
+        private void AddNewsToClient (NewsEventArgs e)
         {
             News.Add(e.News);
         }
@@ -40,7 +55,7 @@ namespace Lesson12Library
         }
         public void CheckNews(object o, NewsEventArgs e)
         {                            
-            if (Categories.HasFlag(e.News.GetNewsCategory()) && !BlackList.Contains(e.GetNewsPortalName()))
+            if (!BlackList.Contains(e.GetNewsPortalName()))
             {
                     AddNewsToClient(e);
             }            

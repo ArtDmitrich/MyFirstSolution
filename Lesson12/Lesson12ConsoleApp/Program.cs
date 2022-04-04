@@ -8,20 +8,34 @@ myProvider.AddInBlackList("TUT.BY");
 
 //создадим несколько клиентов-подписчиков новостного провайдера. добавим категории новостей и черный список
 var client1 = new Client("Jack", myProvider);
-client1.Categories = NewsCategories.News | NewsCategories.Weather;
+client1.AddNewsCategories(NewsCategories.News);
+client1.AddNewsCategories(NewsCategories.Weather);
+var client1Categories = client1.GetClientsCategories();
+Console.WriteLine($"{client1.Name} categories: {client1Categories}");
 
 var client2 = new Client("Bob", myProvider);
-client2.Categories = NewsCategories.Sport;
-client2.Categories |= NewsCategories.Weather;
+client2.AddNewsCategories(NewsCategories.Sport);
+client2.AddNewsCategories(NewsCategories.Weather);
+var client2Categories = client2.GetClientsCategories();
+Console.WriteLine($"{client2.Name} categories: {client2Categories}");
 
 var client3 = new Client("Jesus", myProvider);
-client3.Categories = NewsCategories.Events | NewsCategories.Sport | NewsCategories.Humor | NewsCategories.News;
+client3.AddNewsCategories(NewsCategories.News);
+client3.AddNewsCategories(NewsCategories.Sport);
+client3.AddNewsCategories(NewsCategories.Humor);
+client3.AddNewsCategories(NewsCategories.Events);
+
 client3.AddInBlackList("БТ");
 client3.AddInBlackList("ОНТ");
-client3.Categories ^= NewsCategories.News;
+
+client3.RemoveNewsCategories(NewsCategories.News);
+var client3Categories = client3.GetClientsCategories();
+Console.WriteLine($"{client3.Name} categories: {client3Categories}");
 
 var client4 = new Client("OnlyWeatherMan", myProvider);
-client4.Categories = NewsCategories.Weather;
+client4.AddNewsCategories(NewsCategories.Weather);
+var client4Categories = client1.GetClientsCategories();
+Console.WriteLine($"{client4.Name} categories: {client4Categories}");
 
 //создаем несколько новостных порталов, сразу передавая ссылку на провайдера
 var newsPortal1 = new NewsPortal("TIMES", myProvider);
@@ -61,6 +75,7 @@ newsPortal6.AddNewsInPortal(new News(NewsCategories.Events, "Задержани�
 newsPortal6.AddNewsInPortal(new News(NewsCategories.Sport, "Олимпиада", "Белорусов не пустили"));
 newsPortal6.AddNewsInPortal(new News(NewsCategories.News, "Война", "С какой стороны летят ракеты?"));
 newsPortal6.AddNewsInPortal(new News(NewsCategories.Weather, "Погода завтра", "Мерзковато"));
+
 
 //точка - финиш проги, чтобы поставить брейк-поинт и посмотреть какие новости куда дошли, а какие нет
 Console.WriteLine("FINISH");
