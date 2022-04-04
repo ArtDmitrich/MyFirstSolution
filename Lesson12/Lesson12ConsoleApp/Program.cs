@@ -7,35 +7,31 @@ var myProvider = new NewsProvider();
 myProvider.AddInBlackList("TUT.BY");
 
 //создадим несколько клиентов-подписчиков новостного провайдера. добавим категории новостей и черный список
-var client1 = new Client("Jack", myProvider);
-client1.AddNewsCategories(NewsCategories.News);
-client1.AddNewsCategories(NewsCategories.Weather);
-var client1Categories = client1.GetClientsCategories();
-Console.WriteLine($"{client1.Name} categories: {client1Categories}");
+var client1 = new Client("Jack");
+client1.AddNewsCategories(myProvider, NewsCategories.News);
+client1.AddNewsCategories(myProvider, NewsCategories.Weather);
+Console.WriteLine($"{client1.Name} categories: {client1.GetClientsCategories()}");
 
-var client2 = new Client("Bob", myProvider);
-client2.AddNewsCategories(NewsCategories.Sport);
-client2.AddNewsCategories(NewsCategories.Weather);
-var client2Categories = client2.GetClientsCategories();
-Console.WriteLine($"{client2.Name} categories: {client2Categories}");
+var client2 = new Client("Bob");
+client2.AddNewsCategories(myProvider, NewsCategories.Sport);
+client2.AddNewsCategories(myProvider, NewsCategories.Weather);
+Console.WriteLine($"{client2.Name} categories: {client2.GetClientsCategories()}");
 
-var client3 = new Client("Jesus", myProvider);
-client3.AddNewsCategories(NewsCategories.News);
-client3.AddNewsCategories(NewsCategories.Sport);
-client3.AddNewsCategories(NewsCategories.Humor);
-client3.AddNewsCategories(NewsCategories.Events);
+var client3 = new Client("Jesus");
+client3.AddNewsCategories(myProvider, NewsCategories.News);
+client3.AddNewsCategories(myProvider, NewsCategories.Sport);
+client3.AddNewsCategories(myProvider, NewsCategories.Humor);
+client3.AddNewsCategories(myProvider, NewsCategories.Events);
 
 client3.AddInBlackList("БТ");
 client3.AddInBlackList("ОНТ");
 
-client3.RemoveNewsCategories(NewsCategories.News);
-var client3Categories = client3.GetClientsCategories();
-Console.WriteLine($"{client3.Name} categories: {client3Categories}");
+client3.RemoveNewsCategories(myProvider, NewsCategories.News);
+Console.WriteLine($"{client3.Name} categories: {client3.GetClientsCategories()}");
 
-var client4 = new Client("OnlyWeatherMan", myProvider);
-client4.AddNewsCategories(NewsCategories.Weather);
-var client4Categories = client1.GetClientsCategories();
-Console.WriteLine($"{client4.Name} categories: {client4Categories}");
+var client4 = new Client("OnlyWeatherMan");
+client4.AddNewsCategories(myProvider, NewsCategories.Weather);
+Console.WriteLine($"{client4.Name} categories: {client4.GetClientsCategories()}");
 
 //создаем несколько новостных порталов, сразу передавая ссылку на провайдера
 var newsPortal1 = new NewsPortal("TIMES", myProvider);

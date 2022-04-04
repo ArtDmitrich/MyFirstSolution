@@ -13,19 +13,17 @@ namespace Lesson12Library
         public string Name { get; }
         private List<News> News { get; set; } = new List<News>();
         private List<string> BlackList = new List<string>();
-        private NewsProvider newsProvider;
         private NewsCategories Categories { get; set; }
-        public Client(string name, NewsProvider newsProvider)
+        public Client(string name)
         {
             Name = name;
-            this.newsProvider = newsProvider;
         }
-        public void AddNewsCategories (NewsCategories newsCategories)
+        public void AddNewsCategories (NewsProvider newsProvider, NewsCategories newsCategories)
         {
             newsProvider.SubscribeToNewsletter(this, newsCategories);
             Categories |= newsCategories;
         }
-        public void RemoveNewsCategories(NewsCategories newsCategories)
+        public void RemoveNewsCategories(NewsProvider newsProvider, NewsCategories newsCategories)
         {
             newsProvider.UnsubscribeFromNewsletter(this, newsCategories);
             Categories ^= newsCategories;

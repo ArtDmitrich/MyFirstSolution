@@ -10,12 +10,15 @@ namespace Lesson12Library
 {
     public class NewsProvider
     {
-        public event EventHandler<NewsEventArgs> SendNews;
-        public event EventHandler<NewsEventArgs> SendEvents;
-        public event EventHandler<NewsEventArgs> SendSport;       
-        public event EventHandler<NewsEventArgs> SendWeather;
-        public event EventHandler<NewsEventArgs> SendHumor;
-
+        private event EventHandler<NewsEventArgs> SendNews;
+        private event EventHandler<NewsEventArgs> SendEvents;
+        private event EventHandler<NewsEventArgs> SendSport;       
+        private event EventHandler<NewsEventArgs> SendWeather;
+        private event EventHandler<NewsEventArgs> SendHumor;
+        //не совсем нравится эта модель. сам понимаю, что при добавлении новой категории,
+        //нужно будет не только enum изменить, но и в этом файле добавить событие и 3 блока case в методах
+        //но теперь, при появлении новостей, они фильтруются на уровне провайдера
+        //(раньше все отправлялось клиенту и там происходил отбор). пока оставлю так, если лучше не придумаю :)
 
         private List<string> BlackList = new List<string>();
         public void AddInBlackList(string name)
