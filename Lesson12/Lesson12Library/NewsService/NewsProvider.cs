@@ -57,7 +57,7 @@ namespace Lesson12Library
                     break;
             }          
         }
-        internal void SubscribeToNewsletter (Client client, NewsCategories newsCategories)
+        internal void AddToNewsletter(Client client, NewsCategories newsCategories)
         {
             switch (newsCategories)
             {
@@ -78,7 +78,7 @@ namespace Lesson12Library
                     break;
             }
         }
-        internal void UnsubscribeFromNewsletter(Client client, NewsCategories newsCategories)
+        internal void RemoveFromNewsletter(Client client, NewsCategories newsCategories)
         {
             switch (newsCategories)
             {

@@ -33,13 +33,19 @@ var client4 = new Client("OnlyWeatherMan");
 client4.AddNewsCategories(myProvider, NewsCategories.Weather);
 Console.WriteLine($"{client4.Name} categories: {client4.GetClientsCategories()}");
 
-//создаем несколько новостных порталов, сразу передавая ссылку на провайдера
-var newsPortal1 = new NewsPortal("TIMES", myProvider);
-var newsPortal2 = new NewsPortal("RAIN", myProvider);
-var newsPortal3 = new NewsPortal("EUROSPORT", myProvider);
-var newsPortal4 = new NewsPortal("БТ", myProvider);
-var newsPortal5 = new NewsPortal("ОНТ", myProvider);
-var newsPortal6 = new NewsPortal("TUT.BY", myProvider);
+//создаем несколько новостных порталов и добавляем им в рассылку мой провайдер
+var newsPortal1 = new NewsPortal("TIMES");
+newsPortal1.AddToNewsletter(myProvider);
+var newsPortal2 = new NewsPortal("RAIN");
+newsPortal2.AddToNewsletter(myProvider);
+var newsPortal3 = new NewsPortal("EUROSPORT");
+newsPortal3.AddToNewsletter(myProvider);
+var newsPortal4 = new NewsPortal("БТ");
+newsPortal4.AddToNewsletter(myProvider);
+var newsPortal5 = new NewsPortal("ОНТ");
+newsPortal5.AddToNewsletter(myProvider);
+var newsPortal6 = new NewsPortal("TUT.BY");
+newsPortal6.AddToNewsletter(myProvider);
 
 //добавим каждому новостному порталу по несколько новостей
 newsPortal1.AddNewsInPortal(new News(NewsCategories.News, "Посевная", "Опять все посеяли"));

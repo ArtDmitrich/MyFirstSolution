@@ -20,12 +20,12 @@ namespace Lesson12Library
         }
         public void AddNewsCategories (NewsProvider newsProvider, NewsCategories newsCategories)
         {
-            newsProvider.SubscribeToNewsletter(this, newsCategories);
+            newsProvider.AddToNewsletter(this, newsCategories);
             Categories |= newsCategories;
         }
         public void RemoveNewsCategories(NewsProvider newsProvider, NewsCategories newsCategories)
         {
-            newsProvider.UnsubscribeFromNewsletter(this, newsCategories);
+            newsProvider.RemoveFromNewsletter(this, newsCategories);
             Categories ^= newsCategories;
         }
         public NewsCategories GetClientsCategories()
