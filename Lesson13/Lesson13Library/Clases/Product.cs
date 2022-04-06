@@ -17,7 +17,7 @@ namespace Lesson13Library
         }
         public override string ToString()
         {
-            return $"продукт: {Name}  магазин:{ShopName}";
+            return $"продукт: {Name} магазин:{ShopName}";
         }
     }
 }

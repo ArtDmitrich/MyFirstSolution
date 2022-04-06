@@ -23,5 +23,4 @@ if (findedProducts != null)
 {
     findedProducts.PrintArrayOfProductOnConsole();
 }
-//ddd
 Console.ReadKey();

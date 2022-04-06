@@ -60,7 +60,6 @@ namespace Lesson13Library
             Console.WriteLine("Введите название магазина");
             var shopName = Console.ReadLine();
             var productsFromShop = new List<Product>();
-
             try
             {
                 foreach (var item in products)

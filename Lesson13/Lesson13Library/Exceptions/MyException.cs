@@ -38,7 +38,6 @@ namespace Lesson13Library.Exception
         }
         protected MyException(SerializationInfo info, StreamingContext context) : base(info, context)
         {
-
         }
     }
 }
