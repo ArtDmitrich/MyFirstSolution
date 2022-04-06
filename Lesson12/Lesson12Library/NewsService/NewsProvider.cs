@@ -17,9 +17,9 @@ namespace Lesson12Library
         private event EventHandler<NewsEventArgs> SendHumor;
         //не совсем нравится эта модель. сам понимаю, что при добавлении новой категории,
         //нужно будет не только enum изменить, но и в этом файле добавить событие и 3 блока case в методах
-        
-        //не нашел причину почему подписка и отписка от события работает только через switch
-        //закомменченые строки в методах не работают
+        //но теперь, при появлении новостей, они фильтруются на уровне провайдера
+        //(раньше все отправлялось клиенту и там происходил отбор). пока оставлю так, если лучше не придумаю :)
+
         private List<string> BlackList = new List<string>();
         public void AddInBlackList(string name)
         {
@@ -38,13 +38,27 @@ namespace Lesson12Library
         }
         private void SendNewsToClient(NewsEventArgs e)
         {
-            var myEvent = GetEventHandler(e.News.GetNewsCategory());
-            myEvent?.Invoke(this, e);
+            switch(e.News.GetNewsCategory())
+            {
+                case NewsCategories.News:
+                    SendNews?.Invoke(this, e);
+                    break;
+                case NewsCategories.Events:
+                    SendEvents?.Invoke(this, e);
+                    break;
+                case NewsCategories.Sport:
+                    SendSport?.Invoke(this, e);
+                    break;
+                case NewsCategories.Weather:
+                    SendWeather?.Invoke(this, e);
+                    break;
+                case NewsCategories.Humor:
+                    SendHumor?.Invoke(this, e);
+                    break;
+            }          
         }
         internal void AddToNewsletter(Client client, NewsCategories newsCategories)
         {
-            //var myEvent = GetEventHandler(newsCategories);
-            //myEvent += client.CheckNews;
             switch (newsCategories)
             {
                 case NewsCategories.News:
@@ -66,8 +80,6 @@ namespace Lesson12Library
         }
         internal void RemoveFromNewsletter(Client client, NewsCategories newsCategories)
         {
-            //var myEvent = GetEventHandler(newsCategories);
-            //myEvent -= client.CheckNews;
             switch (newsCategories)
             {
                 case NewsCategories.News:
@@ -93,29 +105,6 @@ namespace Lesson12Library
             {
                 SendNewsToClient(e);
             }
-        }
-        private EventHandler<NewsEventArgs> GetEventHandler(NewsCategories newsCategories)
-        {
-            switch (newsCategories)
-            {
-                case NewsCategories.News:
-                    return SendNews;
-                    break;
-                case NewsCategories.Events:
-                    return SendEvents;
-                    break;
-                case NewsCategories.Sport:
-                    return SendSport;
-                    break;
-                case NewsCategories.Weather:
-                    return SendWeather;
-                    break;
-                case NewsCategories.Humor:
-                    return SendHumor;
-                    break;
-            }
-
-            return null;
         }
     }
 }
