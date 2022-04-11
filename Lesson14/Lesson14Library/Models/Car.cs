@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Lesson14Library.Attributes;
+﻿using Lesson14Library.Attributes;
 
 namespace Lesson14Library.Models
 {
     public class Car
     {
-
-        [MyForProperties("[1-2][0,8,9][0-9][0-9]")]
+        [MyForProperties("[1-2][0,8,9][0-9][0-9]$")]
         public int ManufactureYear { get; set; }
         [MyForProperties(@"^[a-zа-я]{1,16}$")]
         public string Brand { get; set; }
@@ -23,6 +17,10 @@ namespace Lesson14Library.Models
             Model = model;
             ManufactureYear = manufactureYear;
             VIN = vin;
+        }
+        public override string ToString()
+        {
+            return $"Car";
         }
     }
 }

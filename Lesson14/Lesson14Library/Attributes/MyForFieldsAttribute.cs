@@ -1,10 +1,10 @@
 ﻿namespace Lesson14Library.Attributes
 {
-    [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-    internal class MyForPropertiesAttribute: Attribute
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    internal class MyForFieldsAttribute : Attribute
     {
         private string pattern;
-        public MyForPropertiesAttribute(string pattern)
+        public MyForFieldsAttribute(string pattern)
         {
             this.pattern = pattern;
         }

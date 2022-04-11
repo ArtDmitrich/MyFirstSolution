@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Lesson14Library.Attributes;
+﻿using Lesson14Library.Attributes;
 
 namespace Lesson14Library
 {    
@@ -15,17 +8,24 @@ namespace Lesson14Library
         public string FirstName { get; }
         [MyForProperties(@"^[a-zа-я]{2,16}$")]
         public string LastName { get; }
-        [MyForProperties("[1-2][9,0][0-9][0-9]")]
+        [MyForFields(@"^[a-zа-я]{2,16}$")]
+        private string secondName;
+        [MyForProperties("[1-2][9,0][0-9][0-9]$")]
         public int YearOfBirth { get; }
-        public Person(string firstName, string lastName, int yearOfBirth)
+        public Person(string lastName, string firstName,string secondName, int yearOfBirth)
         {
             FirstName = firstName;
             LastName = lastName;
+            this.secondName = secondName;
             YearOfBirth = yearOfBirth;
         }
         public int GetPersonAge()
         {
             return DateTime.Now.Year - YearOfBirth;
+        }
+        public override string ToString()
+        {
+            return $"Person"; 
         }
     }
 }
