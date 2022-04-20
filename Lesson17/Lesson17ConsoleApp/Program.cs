@@ -55,6 +55,6 @@ static void Task2()
     //но оно всеравно как-то случайно выдает
     thread1.Start();
     thread2.Start();
-
+    //не знаю что будет лучше, поэтому оба варианта оставил
     Console.WriteLine();
 }
