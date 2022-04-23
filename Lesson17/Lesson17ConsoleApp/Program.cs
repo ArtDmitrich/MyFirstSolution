@@ -46,13 +46,11 @@ static void Task2()
     //пришлось создавать дополнительное свойство в редакторе, чтобы он хранил путь, куда будем записывать
     ThreadPool.QueueUserWorkItem(textEditor.ReadAndWriteForTask, pathToFile1);
     ThreadPool.QueueUserWorkItem(textEditor.ReadAndWriteForTask, pathToFile2);
-    //при создании новых потоков, тратится на них ресурсы, но можно установить приоритет
-    //и прямо при создании передать лямбда-выражение, а не создавать где-то дополнитеьный метод и как-то изловчаться в передаче переменных
+    //при создании новых потоков, тратится на них ресурсы,
+    //но прямо при создании можно передать лямбда-выражение, а не создавать где-то дополнитеьный метод и как-то изловчаться в передаче переменных
     var thread1 = new Thread(()=> textEditor.WriteTextToFile(textEditor.ReadTextFromFile(pathToFile1), pathToFile3));
     var thread2 = new Thread(()=> textEditor.WriteTextToFile(textEditor.ReadTextFromFile(pathToFile2), pathToFile3));
-    thread1.Priority = ThreadPriority.Highest; 
-    //попытка сделать так, чтобы в третьем файле был записан сразу текст из первого, а затем из второго
-    //но оно всеравно как-то случайно выдает
+   
     thread1.Start();
     thread2.Start();
     //не знаю что будет лучше, поэтому оба варианта оставил
