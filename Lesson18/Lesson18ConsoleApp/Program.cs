@@ -1,8 +1,8 @@
 ﻿using Lesson18Library;
 
-//Task1();
-//Task2();
-//Task3();
+Task1();
+Task2();
+Task3();
 Task4();
 
 static void Task1()
@@ -54,6 +54,7 @@ static void Task4()
 {
     //придумать задачу, в которой придется использовать join, where, take, skip и select.
     //Задача: есть список людей и список фамилий. на основании списка фамилий, найти всех членов каждой семьи
+    //Написать ваше реализацию.
     var peoples = new List<People>
     {
         new Parent { LastName = "Иванов(а)", FirstName = "Игорь"},
@@ -103,5 +104,4 @@ static void Task4()
     {
         Console.WriteLine(item.FirstName);
     }
-    //Написать ваше реализацию.
 }
