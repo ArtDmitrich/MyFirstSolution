@@ -98,10 +98,10 @@ static void Task4()
     //выбрать самую яркую личность из списка. ну или просто одну фамилию и последнего члена из списка
     //(слишком легко. но я не знаю какую задачу придумать на where, take, skip и select. воображения не хватает :( )
     var resultFam = peoples.Where((f) => f.LastName == "Лук-ко");
-    var result = resultFam.Skip(resultFam.Count() - 1).Take(1);
+    var result = resultFam.Skip(resultFam.Count() - 1).Take(1).Select((x) => x.FirstName = "Солнцеподобный");
 
     foreach (var item in result)
     {
-        Console.WriteLine(item.FirstName);
+        Console.WriteLine(item);
     }
 }

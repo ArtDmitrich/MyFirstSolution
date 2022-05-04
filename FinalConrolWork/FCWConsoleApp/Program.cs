@@ -1,11 +1,14 @@
 ﻿using FCWLibrary.Task2;
 using FCWLibrary.Task3;
 using FCWLibrary.Task4;
+using FCWLibrary.Task5;
 
 //Task1();//готово
-//Task2 - готово
-Task3();
+//Task2();//готово
+//Task3();//готово, доделывал после контрольной
 //Task4();//готово 
+Task5();
+
 static void Task1()
 {
     int[,] array = new int[3, 3]
@@ -35,19 +38,11 @@ static void Task1()
 }
 static void Task3()
 {
-    //не готово. вообще не понял суть задачи про какие половины коллекций и как их брать
-    //При помощи LINQ отсортировать коллекцию по возрастанию и вернуть вторую половину
-    //коллекции (округляя вверх если число элементов нечётное) остортированную по убыванию,
-    //где каждый элемент будет возведён в квадрат.
     var myCollection = new List<int>();
-    myCollection.AddNumbersInCollection(30);
+    myCollection.AddNumbersInCollection(10);
 
-    var myCollection2 = myCollection.OrderBy(x => x);
-    var myCollection3 = myCollection.OrderByDescending(x => x * x);
-    for (int i = myCollection.Count / 2; i < myCollection.Count; i++)
-    {
-
-    }
+    var myCollection2 = myCollection.OrderBy(x => x).TakeLast(myCollection.Count / 2).OrderByDescending(x => x).Select(x => x * x);
+        
     Console.WriteLine();
 }
 static void Task4()
@@ -65,5 +60,11 @@ static void Task4()
 
         list[random.Next(0, 3)].SomeMethod();
     }
+}
+static void Task5()
+{
+    var math = new MyMathClass();
+
+    Console.WriteLine(math.Exponentiation(-3,));
 }
 

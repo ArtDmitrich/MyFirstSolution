@@ -13,7 +13,7 @@ namespace FCWLibrary.Task3
             var random = new Random();
             for (var i = 0; i < count; i++)
             {
-                collection.Add(random.Next(0, 100));
+                collection.Add(random.Next(0, 10));
             }
         }
     }
